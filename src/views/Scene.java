@@ -5,6 +5,7 @@
  */
 package views;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,137 @@ import utils.Threads;
  * @author alvar
  */
 public class Scene extends javax.swing.JFrame {
+
+    List<JLabel> firstBoxPileImages = new ArrayList<JLabel>();
+    List<JLabel> secondBoxPileImages = new ArrayList<JLabel>();
+
+    public JLabel getBox1() {
+        return box1;
+    }
+
+    public void setBox1(JLabel box1) {
+        this.box1 = box1;
+    }
+
+    public JLabel getBox10() {
+        return box10;
+    }
+
+    public void setBox10(JLabel box10) {
+        this.box10 = box10;
+    }
+
+    public JLabel getBox11() {
+        return box11;
+    }
+
+    public void setBox11(JLabel box11) {
+        this.box11 = box11;
+    }
+
+    public JLabel getBox12() {
+        return box12;
+    }
+
+    public void setBox12(JLabel box12) {
+        this.box12 = box12;
+    }
+
+    public JLabel getBox13() {
+        return box13;
+    }
+
+    public void setBox13(JLabel box13) {
+        this.box13 = box13;
+    }
+
+    public JLabel getBox14() {
+        return box14;
+    }
+
+    public void setBox14(JLabel box14) {
+        this.box14 = box14;
+    }
+
+    public JLabel getBox15() {
+        return box15;
+    }
+
+    public void setBox15(JLabel box15) {
+        this.box15 = box15;
+    }
+
+    public JLabel getBox16() {
+        return box16;
+    }
+
+    public void setBox16(JLabel box16) {
+        this.box16 = box16;
+    }
+
+    public JLabel getBox2() {
+        return box2;
+    }
+
+    public void setBox2(JLabel box2) {
+        this.box2 = box2;
+    }
+
+    public JLabel getBox3() {
+        return box3;
+    }
+
+    public void setBox3(JLabel box3) {
+        this.box3 = box3;
+    }
+
+    public JLabel getBox4() {
+        return box4;
+    }
+
+    public void setBox4(JLabel box4) {
+        this.box4 = box4;
+    }
+
+    public JLabel getBox5() {
+        return box5;
+    }
+
+    public void setBox5(JLabel box5) {
+        this.box5 = box5;
+    }
+
+    public JLabel getBox6() {
+        return box6;
+    }
+
+    public void setBox6(JLabel box6) {
+        this.box6 = box6;
+    }
+
+    public JLabel getBox7() {
+        return box7;
+    }
+
+    public void setBox7(JLabel box7) {
+        this.box7 = box7;
+    }
+
+    public JLabel getBox8() {
+        return box8;
+    }
+
+    public void setBox8(JLabel box8) {
+        this.box8 = box8;
+    }
+
+    public JLabel getBox9() {
+        return box9;
+    }
+
+    public void setBox9(JLabel box9) {
+        this.box9 = box9;
+    }
 
     /**
      * Creates new form Scene
@@ -123,6 +255,26 @@ public class Scene extends javax.swing.JFrame {
                 .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(scenePanelLayout.createSequentialGroup()
                         .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(box12)
+                            .addComponent(box11)
+                            .addComponent(box9))
+                        .addGap(18, 18, 18)
+                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(box16)
+                            .addComponent(box15)
+                            .addComponent(box14)
+                            .addComponent(box13)))
+                    .addGroup(scenePanelLayout.createSequentialGroup()
+                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(box3)
+                            .addComponent(box4))
+                        .addGap(18, 18, 18)
+                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(box5)
+                            .addComponent(box6)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scenePanelLayout.createSequentialGroup()
+                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(box10)
                             .addGroup(scenePanelLayout.createSequentialGroup()
                                 .addComponent(box1)
                                 .addGap(18, 18, 18)
@@ -132,40 +284,13 @@ public class Scene extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(box7)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
-                        .addComponent(worker1))
-                    .addGroup(scenePanelLayout.createSequentialGroup()
-                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(scenePanelLayout.createSequentialGroup()
-                                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(box12)
-                                    .addComponent(box11)
-                                    .addComponent(box9))
-                                .addGap(18, 18, 18)
-                                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(box16)
-                                    .addComponent(box15)
-                                    .addComponent(box14)
-                                    .addComponent(box13)))
-                            .addGroup(scenePanelLayout.createSequentialGroup()
-                                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(box3)
-                                    .addComponent(box4))
-                                .addGap(18, 18, 18)
-                                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(box5)
-                                    .addComponent(box6))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(scenePanelLayout.createSequentialGroup()
-                        .addComponent(box10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(worker2)))
-                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(scenePanelLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(truck2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scenePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(truck1)))
+                        .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(worker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(worker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(49, 49, 49)
+                .addGroup(scenePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(truck2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(truck1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         scenePanelLayout.setVerticalGroup(
@@ -249,34 +374,51 @@ public class Scene extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void initBoxes(int n) {
+        if (n == 1) {
+            this.firstBoxPileImages.add(this.box1);
+            this.firstBoxPileImages.add(this.box2);
+            this.firstBoxPileImages.add(this.box3);
+            this.firstBoxPileImages.add(this.box4);
+            this.firstBoxPileImages.add(this.box5);
+            this.firstBoxPileImages.add(this.box6);
+            this.firstBoxPileImages.add(this.box7);
+            this.firstBoxPileImages.add(this.box8);
+        } 
+        else {
+            this.secondBoxPileImages.add(this.box9);
+            this.secondBoxPileImages.add(this.box10);
+            this.secondBoxPileImages.add(this.box11);
+            this.secondBoxPileImages.add(this.box12);
+            this.secondBoxPileImages.add(this.box13);
+            this.secondBoxPileImages.add(this.box14);
+            this.secondBoxPileImages.add(this.box15);
+            this.secondBoxPileImages.add(this.box16);
+        }
+    }
+
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
 
-        List<Box> firstBoxPile = new ArrayList<Box>();
-        List<Box> secondBoxPile = new ArrayList<Box>();
-        Truck truck1 = new Truck(16, "ENG10");
-        Truck truck2 = new Truck(16, "C012");
-        Worker worker1 = new Worker("JAVA", false, false, false);
-        Worker worker2 = new Worker("DART", false, false, false);
+        this.initBoxes(1);
+        this.initBoxes(2);
 
-        for (int i = 1; i <= 8; i++) {
-            firstBoxPile.add(new Box());
-        }
-        for (int i = 1; i <= 8; i++) {
-            secondBoxPile.add(new Box());
-        }
-       
-        
-        Threads t1 = new Threads("THREAD WORKER 1", firstBoxPile, truck1);
-        Threads t2 = new Threads("THREAD WORKER 2", secondBoxPile, truck2);
+        Truck truck1 = new Truck(8, "ENG10"); //capacity, license plate
+        Truck truck2 = new Truck(8, "C012"); //capacity, license plate
+        Worker worker1 = new Worker("JAVA", false, false, false); //name, full, isLoading, isUnloading
+        Worker worker2 = new Worker("DART", false, false, false); //name, full, isLoading, isUnloading
+
+        Threads t1 = new Threads("THREAD WORKER 1", this.firstBoxPileImages, truck1, this);//name, box pile, truck, scene
+        Threads t2 = new Threads("THREAD WORKER 2", this.secondBoxPileImages, truck2, this);//name, box pile, truck, scene
 
         t1.setWorker(worker1);
         t1.setWorkerLabel(this.worker1);
-        t1.setFrame(this);
         t1.setTruckLabel(this.truck1);
+        t1.setFrame(this);
 
-        t2.setWorkerLabel(this.worker2);
+        
         t2.setWorker(worker2);
+        t2.setWorkerLabel(this.worker2);
         t2.setFrame(this);
         t2.setTruckLabel(this.truck2);
 

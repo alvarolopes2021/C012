@@ -16,8 +16,8 @@ public class Worker {
     private boolean isUnloading;
     
     public Worker(String name, boolean full, boolean isLoading, boolean isUnloading){
-        this.full = full;
         this.name = name;
+        this.full = full;        
         this.isLoading = isLoading;
         this.isUnloading = isUnloading;
     }
