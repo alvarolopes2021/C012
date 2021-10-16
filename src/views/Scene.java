@@ -14,7 +14,6 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import models.Box;
 import models.Truck;
 import models.Worker;
 import utils.Threads;
@@ -27,135 +26,7 @@ public class Scene extends javax.swing.JFrame {
 
     List<JLabel> firstBoxPileImages = new ArrayList<JLabel>();
     List<JLabel> secondBoxPileImages = new ArrayList<JLabel>();
-
-    public JLabel getBox1() {
-        return box1;
-    }
-
-    public void setBox1(JLabel box1) {
-        this.box1 = box1;
-    }
-
-    public JLabel getBox10() {
-        return box10;
-    }
-
-    public void setBox10(JLabel box10) {
-        this.box10 = box10;
-    }
-
-    public JLabel getBox11() {
-        return box11;
-    }
-
-    public void setBox11(JLabel box11) {
-        this.box11 = box11;
-    }
-
-    public JLabel getBox12() {
-        return box12;
-    }
-
-    public void setBox12(JLabel box12) {
-        this.box12 = box12;
-    }
-
-    public JLabel getBox13() {
-        return box13;
-    }
-
-    public void setBox13(JLabel box13) {
-        this.box13 = box13;
-    }
-
-    public JLabel getBox14() {
-        return box14;
-    }
-
-    public void setBox14(JLabel box14) {
-        this.box14 = box14;
-    }
-
-    public JLabel getBox15() {
-        return box15;
-    }
-
-    public void setBox15(JLabel box15) {
-        this.box15 = box15;
-    }
-
-    public JLabel getBox16() {
-        return box16;
-    }
-
-    public void setBox16(JLabel box16) {
-        this.box16 = box16;
-    }
-
-    public JLabel getBox2() {
-        return box2;
-    }
-
-    public void setBox2(JLabel box2) {
-        this.box2 = box2;
-    }
-
-    public JLabel getBox3() {
-        return box3;
-    }
-
-    public void setBox3(JLabel box3) {
-        this.box3 = box3;
-    }
-
-    public JLabel getBox4() {
-        return box4;
-    }
-
-    public void setBox4(JLabel box4) {
-        this.box4 = box4;
-    }
-
-    public JLabel getBox5() {
-        return box5;
-    }
-
-    public void setBox5(JLabel box5) {
-        this.box5 = box5;
-    }
-
-    public JLabel getBox6() {
-        return box6;
-    }
-
-    public void setBox6(JLabel box6) {
-        this.box6 = box6;
-    }
-
-    public JLabel getBox7() {
-        return box7;
-    }
-
-    public void setBox7(JLabel box7) {
-        this.box7 = box7;
-    }
-
-    public JLabel getBox8() {
-        return box8;
-    }
-
-    public void setBox8(JLabel box8) {
-        this.box8 = box8;
-    }
-
-    public JLabel getBox9() {
-        return box9;
-    }
-
-    public void setBox9(JLabel box9) {
-        this.box9 = box9;
-    }
-
+   
     /**
      * Creates new form Scene
      */
@@ -198,7 +69,6 @@ public class Scene extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(2000, 1600));
         setMinimumSize(new java.awt.Dimension(300, 100));
         setPreferredSize(new java.awt.Dimension(720, 480));
-        setResizable(false);
         setSize(new java.awt.Dimension(720, 480));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -403,25 +273,16 @@ public class Scene extends javax.swing.JFrame {
         this.initBoxes(1);
         this.initBoxes(2);
 
-        Truck truck1 = new Truck(8, "ENG10"); //capacity, license plate
-        Truck truck2 = new Truck(8, "C012"); //capacity, license plate
+        Truck truck1 = new Truck(10, "ENG10"); //capacity, license plate
+        Truck truck2 = new Truck(10, "C012"); //capacity, license plate
         Worker worker1 = new Worker("JAVA", false, false, false); //name, full, isLoading, isUnloading
         Worker worker2 = new Worker("DART", false, false, false); //name, full, isLoading, isUnloading
 
-        Threads t1 = new Threads("THREAD WORKER 1", this.firstBoxPileImages, truck1, this);//name, box pile, truck, scene
-        Threads t2 = new Threads("THREAD WORKER 2", this.secondBoxPileImages, truck2, this);//name, box pile, truck, scene
-
-        t1.setWorker(worker1);
-        t1.setWorkerLabel(this.worker1);
-        t1.setTruckLabel(this.truck1);
-        t1.setFrame(this);
-
-        
-        t2.setWorker(worker2);
-        t2.setWorkerLabel(this.worker2);
-        t2.setFrame(this);
-        t2.setTruckLabel(this.truck2);
-
+        Threads t1 = new Threads("THREAD WORKER 1", this.firstBoxPileImages, worker1, this.worker1, truck1,
+                this.truck1, this);//name, box pile, truck
+        Threads t2 = new Threads("THREAD WORKER 2", this.secondBoxPileImages, worker2, this.worker2, truck2, 
+                this.truck2, this);//name, box pile, truck
+       
         t1.start();
         t2.start();
     }//GEN-LAST:event_formWindowOpened

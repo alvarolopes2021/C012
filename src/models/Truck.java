@@ -12,7 +12,7 @@ package models;
 public class Truck {
     private String plate;
     private int capacity;
-    private int load;
+    
     
     public Truck(int capacity, String plate){
         this.capacity = capacity;
@@ -34,14 +34,6 @@ public class Truck {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
-    public int getLoad() {
-        return load;
-    }
-
-    public void setLoad(int load) {
-        this.load = load;
-    }
-    
+   
     
 }

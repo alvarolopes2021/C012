@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import models.Box;
 import models.Truck;
 import models.Worker;
 import views.Scene;
@@ -32,24 +31,27 @@ public class Threads extends Thread {
     String nome; //nome da thread
 
     private JFrame frame;
-    private Scene cena;
-
-    public int firstColumnDx = 50;
-    public int secondColumnDx = 20;
-
+    
     private Worker worker;
-    private JLabel workerLabel;
-    public int workerDx;
+    private JLabel workerLabel;    
     private Truck truck;
     private JLabel truckLabel;
 
-    public List<JLabel> boxPileImages;
+    public List<JLabel> boxPileImages;    
+    
+    public int firstColumnDx = 50;
+    public int secondColumnDx = 20;
 
-    public Threads(String name, List<JLabel> boxPileImage, Truck truck, Scene cena) {
-        this.truck = truck;
+    public Threads(String name, List<JLabel> boxPileImage, Worker worker, JLabel workerLabel, Truck truck,
+            JLabel truckLabel, JFrame frame) {        
         this.nome = name;
-        this.cena = cena;
         this.boxPileImages = boxPileImage;
+        this.worker = worker;
+        this.workerLabel = workerLabel;        
+        this.truck = truck;
+        this.truckLabel = truckLabel;
+        this.frame = frame;
+        
     }
 
     @Override
@@ -59,7 +61,7 @@ public class Threads extends Thread {
         while (true) {
             System.out.println("eu sou o " + worker.getName());
 
-            if (this.truck.getCapacity() <= 0 && this.boxPileImages.size() <= 0) {
+            if ((this.truck.getCapacity() <= 0 || this.boxPileImages.size() <= 0) && !this.worker.isFull()) {
                 System.out.println("JOB WELL DONE");
                 break;
             } 
@@ -83,7 +85,7 @@ public class Threads extends Thread {
                 this.workerLabel.setIcon(image);
                 this.frame.repaint();
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(40);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Threads.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -92,6 +94,11 @@ public class Threads extends Thread {
             
             else if (this.workerLabel.getX() <= this.firstColumnDx && !this.worker.isFull()) {
                 System.out.println("loading");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Threads.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 Container parent = this.boxPileImages.get(boxToRemove).getParent();
                 if (boxToRemove <= 7) {
                     parent.remove(this.boxPileImages.get(boxToRemove));
@@ -99,15 +106,9 @@ public class Threads extends Thread {
                     parent.repaint();
                     boxToRemove--;
                     System.out.println("tamanho da pilha: " + this.boxPileImages.size());
-                }
-                try {
-                    Thread.sleep(1200);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Threads.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                }                
                 this.worker.setIsLoading(true);
                 this.worker.setFull(true);
-
             }
             
             
@@ -115,7 +116,7 @@ public class Threads extends Thread {
                 System.out.println("going back");
                 this.worker.setIsLoading(false);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Threads.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -138,61 +139,19 @@ public class Threads extends Thread {
             
             else if (this.workerLabel.getX() > this.truckLabel.getX() && this.worker.isFull()) {
                 System.out.println("unloading");
-                if (this.truck.getCapacity() > 0) {
-                    int load = this.truck.getCapacity();
-                    this.truck.setLoad(load - (load - 1));
-                    this.truck.setCapacity(this.truck.getCapacity() - 1);
-                    System.out.println(this.truck.getPlate() + " com capacidade: " + this.truck.getCapacity());
-                }
                 try {
                     Thread.sleep(1200);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Threads.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                if (this.truck.getCapacity() > 0) {
+                    int load = this.truck.getCapacity();                    
+                    this.truck.setCapacity(this.truck.getCapacity() - 1);
+                    System.out.println(this.truck.getPlate() + " com capacidade: " + this.truck.getCapacity());
+                }                
                 this.worker.setIsUnloading(true);
                 this.worker.setFull(false);
             }
         }
     }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Worker getWorker() {
-        return worker;
-    }
-
-    public void setWorker(Worker worker) {
-        this.worker = worker;
-    }
-
-    public JLabel getWorkerLabel() {
-        return workerLabel;
-    }
-
-    public JLabel getTruckLabel() {
-        return truckLabel;
-    }
-
-    public void setTruckLabel(JLabel truckLabel) {
-        this.truckLabel = truckLabel;
-    }
-
-    public void setWorkerLabel(JLabel workerLabel) {
-        this.workerLabel = workerLabel;
-    }
-
-    public JFrame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(JFrame frame) {
-        this.frame = frame;
-    }
-
 }
