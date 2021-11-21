@@ -273,8 +273,8 @@ public class Scene extends javax.swing.JFrame {
         this.initBoxes(1);
         this.initBoxes(2);
 
-        Truck truck1 = new Truck(10, "ENG10"); //capacity, license plate
-        Truck truck2 = new Truck(10, "C012"); //capacity, license plate
+        Truck truck1 = new Truck(1, "ENG10"); //capacity, license plate
+        Truck truck2 = new Truck(1, "C012"); //capacity, license plate
         Worker worker1 = new Worker("JAVA", false, false, false); //name, full, isLoading, isUnloading
         Worker worker2 = new Worker("DART", false, false, false); //name, full, isLoading, isUnloading
 
